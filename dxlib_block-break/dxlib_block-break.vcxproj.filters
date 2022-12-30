@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp" />
+    <ClCompile Include="App.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Engine\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>App\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEffectCommand.cpp">
+      <Filter>App\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Engine\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>App\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>App\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultScene.cpp">
+      <Filter>App\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>App\DataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneFader.cpp">
+      <Filter>App\SceneFader</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>App\Panel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Engine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Engine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>App\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Engine\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEffectCommand.h">
+      <Filter>App\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Engine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Engine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>App\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>App\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>App\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultScene.h">
+      <Filter>App\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>App\DataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneFader.h">
+      <Filter>App\SceneFader</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>App\Panel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{621ae60d-8e74-41ee-909a-bbb9b1cd50d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{4fea17ba-fd34-4a17-a3d2-774f89da2f38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Graphic">
+      <UniqueIdentifier>{e47f5068-1100-4647-9a45-f596b333393e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Audio">
+      <UniqueIdentifier>{84d4fa0b-2277-4052-9eb2-30363b21e689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Input">
+      <UniqueIdentifier>{01dcf14b-cfa3-4b30-b5e7-4c4c88510e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Math">
+      <UniqueIdentifier>{62ae4886-bee6-4487-b2a6-d62120cf1d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Actor">
+      <UniqueIdentifier>{e527858a-a360-45fb-a3a6-dd017ae04a54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Command">
+      <UniqueIdentifier>{18ad2562-e6c3-42b1-9bfc-0a14cc8a7d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Commands">
+      <UniqueIdentifier>{052d903b-abbc-4b50-a79f-ce41ed234299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{b1d0dd21-126b-405e-b854-7743f00aff22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Scenes">
+      <UniqueIdentifier>{46f91ae3-bc73-4960-ae1d-a49c65db21c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\States">
+      <UniqueIdentifier>{06898159-a4c1-4aa7-9e24-da72e8689002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\UI">
+      <UniqueIdentifier>{f1edcec0-a162-4e4c-bd7d-baeab9db8bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\DataManager">
+      <UniqueIdentifier>{c65590f6-d57c-436a-8cba-7d242749f581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Camera">
+      <UniqueIdentifier>{e1f378b0-a0b4-422b-aaec-aac2da6bb830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\SceneFader">
+      <UniqueIdentifier>{6d76e3e5-b3fa-460d-ba17-a17eaf906909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Panel">
+      <UniqueIdentifier>{7c94684c-3153-48ff-bbac-d73f35ac891d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
