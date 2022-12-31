@@ -38,6 +38,11 @@ int WINAPI WinMain
 	SetBackgroundColor(123, 123, 123);
 	// 描画先を裏画面にする
 	SetDrawScreen(DX_SCREEN_BACK);
+	
+	//ウィンドウタイトル設定
+	SetWindowText("BLOCK BREAK-OUT");
+	//ウィンドウアイコンIDを変更
+	SetWindowIconID(01);
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{
