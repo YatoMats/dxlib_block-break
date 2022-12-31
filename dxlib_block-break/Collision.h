@@ -1,8 +1,35 @@
 #pragma once
 #include "Rect.h"
 
-//当たり判定計算
+//TODO:当たり判定計算用と、衝突ベクトルの計算も行う用とに分ける
+
 struct Collision {
+	/// <summary>
+	/// 円同士の衝突処理
+	/// </summary>
+	/// <param name="p">円1の中心点</param>
+	/// <param name="r">円1の半径</param>
+	/// <param name="veloc">円1の速度</param>
+	/// <param name="p2">円2の中心点</param>
+	/// <param name="r2">円2の半径</param>
+	/// <returns>当たったかどうか</returns>
+	static bool CircleToCircle(Vec2 p, float r, Vec2 veloc, Vec2 p2, float r2)
+	{
+		//距離計算
+		float dPow = p.DistancePow(p2);
+		//当たり判定計算
+		if (dPow < Math::Pow2(r + r2))
+		{
+			veloc.Reflect(p2.DirectionTo(p));
+
+			return true;
+		}
+		return false;
+	}
+};
+
+//当たり判定計算
+struct HitCheck {
 
 	/// <summary>
 	/// 円同士の当たり判定
@@ -11,7 +38,7 @@ struct Collision {
 	/// <param name="r">円1の半径</param>
 	/// <param name="p2">円2の中心点</param>
 	/// <param name="r2">円2の半径</param>
-	/// <returns></returns>
+	/// <returns>当たったかどうか</returns>
 	static bool CircleToCircle(Vec2 p, float r, Vec2 p2, float r2) 
 	{
 		//距離計算
