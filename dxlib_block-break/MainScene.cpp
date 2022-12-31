@@ -626,7 +626,7 @@ void MainScene::OnBallFall()
 void MainScene::OnGamePause()
 {
 	//デバッグ用操作
-	if (InputManager::GetKeyEnter(KEY_ID::R)) {
+	/*if (InputManager::GetKeyEnter(KEY_ID::R)) {
 		//ゲーム終了時パラメータ情報を一時保存
 		ResultData result;
 		result.isSuccess = true;//m_isGameClear;
@@ -647,7 +647,8 @@ void MainScene::OnGamePause()
 		m_fadeOuter->SetTrigger("ResultScene");
 	}
 
-	else if (InputManager::GetKeyEnter(KEY_ID::ESC)||
+	else*/
+	if (InputManager::GetKeyEnter(KEY_ID::ESC)||
 		InputManager::GetKeyEnter(KEY_ID::MOUSE_LEFT)||
 		InputManager::GetKeyEnter(KEY_ID::MOUSE_MIDDLE)||
 		InputManager::GetKeyEnter(KEY_ID::MOUSE_RIGHT)

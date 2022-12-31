@@ -7,6 +7,10 @@ class Scene;
 class SceneBuild;
 
 class SceneManager {
+
+	static bool s_isLoaded;
+	static bool s_isNowLoading;
+
 	//現在稼働中のシーン
 	static Scene* s_activeScene;
 	//次に読み込むシーン
@@ -21,6 +25,9 @@ public:
 	static bool LoadScene(const std::string& sceneName);
 	//シーンのビルド番号から、シーンを読み込み
 	static bool LoadScene(int buildIndex);
+
+	//非同期でのシーンの読み込み
+	static bool LoadSceneAsync(const std::string& sceneName);
 
 	//現在稼働中のシーンを取得
 	static Scene* GetActiveScene() { return s_activeScene; }

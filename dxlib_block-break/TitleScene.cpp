@@ -97,7 +97,7 @@ void TitleScene::Update()
 	//m_button->Update();
 
 	//デバッグ用操作
-	if (InputManager::GetKeyEnter(KEY_ID::S)) {
+	/*if (InputManager::GetKeyEnter(KEY_ID::S)) {
 		SaveData dat;
 		dat.name = "User Name";
 		dat.highScore = 12345;
@@ -110,7 +110,7 @@ void TitleScene::Update()
 		m_descTxt->SetText(dat.name + "\n" + std::to_string(dat.highScore));
 	}
 
-	else if (//InputManager::GetKeyEnter(KEY_ID::MOUSE_LEFT) ||
+	else*/ if (//InputManager::GetKeyEnter(KEY_ID::MOUSE_LEFT) ||
 		//InputManager::GetKeyEnter(KEY_ID::MOUSE_MIDDLE) ||
 		//InputManager::GetKeyEnter(KEY_ID::MOUSE_RIGHT) ||
 		InputManager::GetKeyEnter(KEY_ID::ESC)
@@ -124,7 +124,7 @@ void TitleScene::Update()
 
 		//メインシーンを読み込む
 		m_sceneFadeOuter->SetTrigger("MainScene");
-		//SceneManager::LoadScene("MainScene");
+		//SceneManager::LoadSceneAsync("MainScene");
 	}
 
 	//シーンフェードパネル更新処理

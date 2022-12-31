@@ -43,7 +43,10 @@ void SceneFadeOuter::Update()
 		m_timer = 0.0f;
 
 		//時間になったら、次のシーン読み込み
-		SceneManager::LoadScene(m_nextSceneName);
+		if (m_useAsync)
+			SceneManager::LoadSceneAsync(m_nextSceneName);
+		else 
+			SceneManager::LoadScene(m_nextSceneName);
 	}
 	//徐々にパネルを不透明に
 	m_panel->alpha += m_timer / m_waitTime;
