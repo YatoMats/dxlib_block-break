@@ -10,9 +10,6 @@
 #define Release(x) if(x!=nullptr){delete x; x=nullptr;}
 #endif // !Release
 
-//TODO:DataManager ConfigData
-//TODO:KeyConfig  KEY_ID DecisionKey = KEY_ID::A;  KeyConfig::DecisionKey;
-//TODO:UI Slider
 //TODO:Config
 	//BGM,SE音量設定
 	//KeyConfig
@@ -96,28 +93,15 @@ void TitleScene::Update()
 	//ボタン更新処理
 	//m_button->Update();
 
-	//デバッグ用操作
-	/*if (InputManager::GetKeyEnter(KEY_ID::S)) {
-		SaveData dat;
-		dat.name = "User Name";
-		dat.highScore = 12345;
-		m_descTxt->SetText(dat.name + "\n SCORE:" + std::to_string(dat.highScore));
-		DataManager::SaveSaveData(dat);
-	}
-	else if (InputManager::GetKeyEnter(KEY_ID::L)) 
-	{
-		SaveData dat = DataManager::LoadSaveData();
-		m_descTxt->SetText(dat.name + "\n" + std::to_string(dat.highScore));
-	}
-
-	else*/ if (//InputManager::GetKeyEnter(KEY_ID::MOUSE_LEFT) ||
+	if (//InputManager::GetKeyEnter(KEY_ID::MOUSE_LEFT) ||
 		//InputManager::GetKeyEnter(KEY_ID::MOUSE_MIDDLE) ||
 		//InputManager::GetKeyEnter(KEY_ID::MOUSE_RIGHT) ||
 		InputManager::GetKeyEnter(KEY_ID::ESC)
 		)
-	{}
-	//上記以外の、いずれかのキーが押されたら、
-	else if (InputManager::GetAnyKeyEnter()) 
+	{
+	}
+	//上記以外の、いずれかのキーが押されたら、また、シーンを既に読み込み中でないなら、
+	else if (InputManager::GetAnyKeyEnter() && !SceneManager::IsNowLoading())
 	{
 		//SE再生
 		m_fadeOutSE->Play();

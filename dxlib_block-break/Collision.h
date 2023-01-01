@@ -1,8 +1,6 @@
 #pragma once
 #include "Rect.h"
 
-//TODO:当たり判定計算用と、衝突ベクトルの計算も行う用とに分ける
-
 struct Collision {
 	/// <summary>
 	/// 円同士の衝突処理

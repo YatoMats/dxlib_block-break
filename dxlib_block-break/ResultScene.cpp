@@ -72,8 +72,27 @@ void ResultScene::Start()
 	if (sec < 10) secStr = "0" + secStr;
 	if (min < 10) minStr = "0" + minStr;
 	//時間表示用テキストに設定
-	std::string timeStr = "ClearTime " + minStr + ":" + secStr;
+	std::string timeStr = "ClearTime " + minStr + ":" + secStr + "\n";
 	descStr += timeStr;
+
+	//セーブデータ読み込み
+	SaveData sdat = DataManager::LoadSaveData();
+
+	//ハイスコアが更新されたら、
+	if (dat.score > sdat.highScore) 
+	{
+		//表示テキストを変更
+		descStr += "\n NEW RECORD!";
+
+		//新たなスコアデータをハイスコアとして保存
+		sdat.highScore = dat.score;
+		DataManager::SaveSaveData(sdat);
+	}
+	else 
+	{
+		//ハイスコアを表示
+		descStr += "\nHIGH-SCORE:" + std::to_string(sdat.highScore);
+	}
 
 	//説明テキストに上記文字列を追加.
 	m_descTxt->SetText(m_descTxt->GetText() + " \n\n" + descStr);

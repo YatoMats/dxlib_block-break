@@ -11,7 +11,7 @@ protected:
 	float m_alpha;
 
 	//フェード完了までの最低待ち時間
-	float m_waitTime = 0.1f;//0.25f;
+	float m_waitTime = 0.17f;
 	//待ち時間計測用
 	float m_timer = 0.0f;
 

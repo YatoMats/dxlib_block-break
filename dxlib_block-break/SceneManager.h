@@ -31,6 +31,9 @@ public:
 
 	//現在稼働中のシーンを取得
 	static Scene* GetActiveScene() { return s_activeScene; }
+	
+	//現在、非同期でシーンを読み込み中かどうか
+	static bool IsNowLoading() { return s_isNowLoading; }
 private:
 	//シーン名から、シーンのビルド番号を取得
 	static int GetBuildIndexByName(const std::string& sceneName);

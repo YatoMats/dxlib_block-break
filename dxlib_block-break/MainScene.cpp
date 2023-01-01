@@ -11,25 +11,23 @@
 #define Release(x) if(x!=nullptr){delete x; x=nullptr;}
 #endif // !Release
 
-//TODO:パドル端にボールが当たったら、円同士の衝突判定、反射ベクトルで計算
+//TODO:パドルを円形に。衝突後、ボールの押し出し処理を
+// 
 //TODO: 時間経過でボール速度アップ
 //TODO:ウィンドウサイズに応じて、ブロック生成数などを変える
+
+//TODO:ポーズパネルクラス
+//TODO:HPUIクラス
+//TODO:TimerUIクラス
 
 //TODO:UI Slider
 //TODO:UI InputField
 //TODO:Config 
-//TODO:Matrix
 
 void MainScene::Start()
 {
-	//フェード用オブジェクト作成
-	m_fadeOuter = new SceneFadeOuter();
-	m_fadeInner = new SceneFadeInner();
-
-	//シーンフェードアウト時SE
-	m_faderSE = new Audio("assets/aud/se/decision3.mp3");
-	m_faderSE->volume = 1.0f;
-
+	//乱数シード値設定
+	srand((unsigned int)time(NULL));
 
 	//標準のフォントサイズを設定
 	Text::SetDefaultFontSize(33);
@@ -49,16 +47,25 @@ void MainScene::Start()
 	m_bgImg = new Image("assets/img/cosmos.png");
 
 
+	//フェード用オブジェクト作成
+	m_fadeOuter = new SceneFadeOuter();
+	m_fadeInner = new SceneFadeInner();
+
+	//シーンフェードアウト時SE
+	m_faderSE = new Audio("assets/aud/se/decision3.mp3");
+	m_faderSE->volume = 1.0f;
+
+
 	//HP表示用テキスト初期設定
 	m_hpText = new Text("HP:");// +std::to_string(m_hp));
 	m_hpText->SetColor(0, 0.8f, 0);
-
 
 	//HP表示用ハートUI画像読み込み
 	for (int i = 0; i < m_hp; i++) {
 		Image* h = new Image("assets/img/heart.png");
 		m_heartImgs.push_back(h);
 	}
+
 
 	//時間表示用テキスト
 	m_timeText = new Text("TIME 00:00");
@@ -140,10 +147,12 @@ void MainScene::Start()
 
 
 	//プレイヤーパドル作成、設定
+	Image* pdlImg = new Image("");
+	pdlImg->shape = Shape::Circle;
 	m_paddle = new Actor(
-		new Image(""),			//画像情報
+		pdlImg,				//画像情報
 		scrw / 2, scrh - 50,	//位置
-		100, 13					//サイズ
+		80, 80					//サイズ
 	);
 	//アクターリストに追加
 	m_actors.push_back(m_paddle);
@@ -364,7 +373,7 @@ void MainScene::Update()
 		}
 	}
 	//ボール軌道が垂直に近く、
-	else if (Math::Abs(bv.x) < 0.03f) {
+	/*else if (Math::Abs(bv.x) < 0.03f) {
 		//下向き
 		if (0 < bv.y) {
 			//右向きなら、時計回りに回転
@@ -379,14 +388,6 @@ void MainScene::Update()
 			//左向きなら、反時計回りに回転
 			else bv.Rotate(-3);
 		}
-	}
-	/*Vec2 horiz(1, 0);
-	Vec2 bvNorm = bv.norm();
-	float inner = horiz.Cross(bvNorm);
-	if (Math::Abs(inner) > 0.96f)
-	{
-		//回す向きを変える
-		bv.Rotate(1);
 	}*/
 
 
@@ -424,11 +425,27 @@ void MainScene::Update()
 	}
 
 
+	//ボールとブロックとの距離の2乗を計算
+	float dpow = b.DistancePow(p);
+	float pr = pw / 2;
+	//ボールとブロックが当たっていたら、
+	if (dpow < Math::Pow2(br + pr))
+	{
+		//ボール速度ベクトルを反射
+		bv.Reflect(p.DirectionTo(b));
+
+		//SE再生
+		m_paddleSE->Play();
+	}
 	//ボールがパドルに当たったら、
-	if (HitCheck::CircleToBox(b, br, p, pw, ph))
-	{						 
+	//if (HitCheck::CircleToBox(b, br, p, pw, ph))
+	/*if (HitCheck::CircleToCircle(b, br, p, pw))
+	{						
+		//ボール速度ベクトルを反射
+		bv.Reflect(p.DirectionTo(b));
+
 		//矩形左上
-		Vec2 min = Vec2(p.x - pw / 2, p.y - ph / 2);
+		/*Vec2 min = Vec2(p.x - pw / 2, p.y - ph / 2);
 		//矩形右下
 		Vec2 max = Vec2(p.x + pw / 2, p.y + ph / 2);
 
@@ -458,7 +475,7 @@ void MainScene::Update()
 		else if (b.DistancePow(max) < Math::Pow2(br)) {
 			//反射ベクトル計算
 			bv.Reflect(max.DirectionTo(b));
-		}*/
+		}*//*
 		//角以外の反射計算
 		else
 		{
@@ -467,10 +484,9 @@ void MainScene::Update()
 			//ボール速度ベクトルを反射
 			bv.y *= -1.0f;
 		}
-
 		//SE再生
 		m_paddleSE->Play();
-	}
+	}*/
 
 	//ボールとブロックとの当たり判定
 	for (int i = (int)m_actors.size() - 1; i >= 2; i--) {

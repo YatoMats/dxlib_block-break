@@ -113,13 +113,13 @@ void SceneManager::Update()
 	//次のシーンの読み込み待ち状態なら、
 	if (s_nextScene != nullptr) 
 	{
-		//非同期のシーン読み込み中で、
+		//非同期のシーン読み込みなら、
 		if (s_isNowLoading) 
 		{
-			s_isNowLoading = false;
-
 			//読み込み完了していたら、
-			if (s_isLoaded) {
+			if (s_isLoaded) 
+			{
+				s_isNowLoading = false;
 				s_isLoaded = false;
 
 				//前のシーンの終了処理

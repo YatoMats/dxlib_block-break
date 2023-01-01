@@ -51,7 +51,7 @@
       <Filter>App\SceneFader</Filter>
     </ClCompile>
     <ClCompile Include="Panel.cpp">
-      <Filter>App\Panel</Filter>
+      <Filter>App\PausePanel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +78,6 @@
     </ClInclude>
     <ClInclude Include="Actor.h">
       <Filter>App\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Engine\Command</Filter>
     </ClInclude>
     <ClInclude Include="SoundEffectCommand.h">
       <Filter>App\Commands</Filter>
@@ -122,7 +119,10 @@
       <Filter>App\SceneFader</Filter>
     </ClInclude>
     <ClInclude Include="Panel.h">
-      <Filter>App\Panel</Filter>
+      <Filter>App\PausePanel</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>App\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +146,6 @@
     </Filter>
     <Filter Include="App\Actor">
       <UniqueIdentifier>{e527858a-a360-45fb-a3a6-dd017ae04a54}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Command">
-      <UniqueIdentifier>{18ad2562-e6c3-42b1-9bfc-0a14cc8a7d09}</UniqueIdentifier>
     </Filter>
     <Filter Include="App\Commands">
       <UniqueIdentifier>{052d903b-abbc-4b50-a79f-ce41ed234299}</UniqueIdentifier>
@@ -174,8 +171,14 @@
     <Filter Include="App\SceneFader">
       <UniqueIdentifier>{6d76e3e5-b3fa-460d-ba17-a17eaf906909}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\Panel">
+    <Filter Include="App\PausePanel">
       <UniqueIdentifier>{7c94684c-3153-48ff-bbac-d73f35ac891d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\TimerUI">
+      <UniqueIdentifier>{e76e76e0-e20a-4976-9590-9439de4156c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\HPUI">
+      <UniqueIdentifier>{202cbe69-d32a-4b7e-8737-8740f6ccddd7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
