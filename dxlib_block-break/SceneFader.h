@@ -42,6 +42,9 @@ public:
 	void SetTrigger(const std::string& nextSceneName) { 
 		m_isTriggered = true; m_nextSceneName = nextSceneName; 
 	}
+
+	//シーンフェードが起動済みかどうか
+	bool IsTriggered() { return m_isTriggered; }
 };
 
 //シーン開始時のフェードイン処理

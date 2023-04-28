@@ -45,8 +45,8 @@ struct Vec2 {
 		return *this;
 	}
 	Vec2& operator-=(float n) {
-		x += n;
-		y += n;
+		x -= n;
+		y -= n;
 		return *this;
 	}
 	Vec2& operator*=(float n) {

@@ -101,8 +101,10 @@ void TitleScene::Update()
 	{
 	}
 	//上記以外の、いずれかのキーが押されたら、また、シーンを既に読み込み中でないなら、
-	else if (InputManager::GetAnyKeyEnter() && !SceneManager::IsNowLoading())
+	else if (InputManager::GetAnyKeyEnter())
 	{
+		if (m_sceneFadeOuter->IsTriggered()) return;
+
 		//SE再生
 		m_fadeOutSE->Play();
 

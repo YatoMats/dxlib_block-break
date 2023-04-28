@@ -11,8 +11,7 @@
 #define Release(x) if(x!=nullptr){delete x; x=nullptr;}
 #endif // !Release
 
-//TODO:パドルを円形に。衝突後、ボールの押し出し処理を
-// 
+//TODO: CollisionState : CollisionEnter , OnCollision, CollisionExit 
 //TODO: 時間経過でボール速度アップ
 //TODO:ウィンドウサイズに応じて、ブロック生成数などを変える
 
@@ -431,62 +430,16 @@ void MainScene::Update()
 	//ボールとブロックが当たっていたら、
 	if (dpow < Math::Pow2(br + pr))
 	{
+		//パドルからボールへの向きベクトルのノルム
+		Vec2 dir = p.DirectionTo(b).norm();
 		//ボール速度ベクトルを反射
-		bv.Reflect(p.DirectionTo(b));
+		bv.Reflect(dir);
+		//ボール位置押し戻し処理
+		b = p + dir * (br + pr);
 
 		//SE再生
 		m_paddleSE->Play();
 	}
-	//ボールがパドルに当たったら、
-	//if (HitCheck::CircleToBox(b, br, p, pw, ph))
-	/*if (HitCheck::CircleToCircle(b, br, p, pw))
-	{						
-		//ボール速度ベクトルを反射
-		bv.Reflect(p.DirectionTo(b));
-
-		//矩形左上
-		/*Vec2 min = Vec2(p.x - pw / 2, p.y - ph / 2);
-		//矩形右下
-		Vec2 max = Vec2(p.x + pw / 2, p.y + ph / 2);
-
-		//角に当たった場合の反射計算
-		//矩形4頂点と円との当たり判定
-		if (b.DistancePow(min) < Math::Pow2(br)) {
-			//ボールがパドル左上頂点より左上側なら、
-			if ((b.x < min.x) && (b.y < min.y)) {
-				//押し戻し処理
-				//ボール位置をパドルの上に
-				//b.y = p.y - ph / 2 - br;
-				//反射ベクトル計算
-				bv.Reflect(min.DirectionTo(b));
-			}
-		}
-		else if (b.DistancePow(Vec2(max.x, min.y)) < Math::Pow2(br)) {
-			//ボールがパドル右上頂点より右上側なら、
-			if ((max.x < b.x) && (b.y < min.y)) {
-				//反射ベクトル計算
-				bv.Reflect(Vec2(max.x, min.y).DirectionTo(b));
-			}
-		}
-		/*else if (b.DistancePow(Vec2(min.x, max.y)) < Math::Pow2(br)) {
-			//反射ベクトル計算
-			bv.Reflect(Vec2(min.x, max.y).DirectionTo(b));
-		}
-		else if (b.DistancePow(max) < Math::Pow2(br)) {
-			//反射ベクトル計算
-			bv.Reflect(max.DirectionTo(b));
-		}*//*
-		//角以外の反射計算
-		else
-		{
-			//ボール位置をパドルの上に
-			b.y = p.y - ph / 2 - br;
-			//ボール速度ベクトルを反射
-			bv.y *= -1.0f;
-		}
-		//SE再生
-		m_paddleSE->Play();
-	}*/
 
 	//ボールとブロックとの当たり判定
 	for (int i = (int)m_actors.size() - 1; i >= 2; i--) {
